@@ -3,16 +3,16 @@
 #include <stdlib.h> 
 
 
-bool if_dec(char*);
-bool if_hex(char*);
-bool if_bin(char*);
-int bin_dec(char*);
-int dec_dec(char*);
-int hex_dec(const char*);
+bool if_dec(char*);  //if in char* decimal number true else false
+bool if_hex(char*);  //if in char* hexadecimal number true else false
+bool if_bin(char*);  //if in char* binary number true else false
+int bin_dec(char*);  // binar number in char* --> int number in int
+int dec_dec(char*);  // decimal number in char* --> int number in int
+int hex_dec(const char*); // hexadecimal number in char* --> int number in int
 
 
-int calculator(int, int);
-void count(int);
+int calculator(int, int); // bitvize calculator
+void determinant(int);  //license plate number system
 
 int main(){
 	int dec = 0;
@@ -28,10 +28,11 @@ int main(){
 		}
 	}while(dec != 10 && dec != 2 && dec != 16);
 	
-	count(dec);
+	determinant(dec);
 	return 0;
 }	
-//tested
+
+
 int calculator(int a, int b){
 	
 	int cal = 0;
@@ -76,8 +77,8 @@ int calculator(int a, int b){
 	return 0;
 }
 
-//notested
-void count(int dec){
+
+void determinant(int dec){
 	switch(dec){
 		case 10:
 		char num1[8];
@@ -137,7 +138,7 @@ void count(int dec){
 }
 
 
-//verified
+
 int hex_dec(const char* hex){
 	int decimal = 0;
 	sscanf(hex, "%x",&decimal);
@@ -145,7 +146,7 @@ int hex_dec(const char* hex){
 }
 
 
-//verified
+
 int dec_dec(char* dec1){
 	int a = 0;
 	if(*dec1 == '0' && (*(dec1 + 1) == 'd' || *(dec1 + 1) == 'D')){
@@ -161,7 +162,7 @@ int dec_dec(char* dec1){
 	return a;
 }
 
-//verified
+
 int bin_dec(char* bin1){
 	int a = 0;
 	if(*bin1 == '0' && (*(bin1 + 1) == 'b' || *(bin1 + 1) == 'B')){
@@ -180,7 +181,7 @@ int bin_dec(char* bin1){
 	return a;
 }
 
-//verified
+
 bool if_bin(char* bin){
 	if(*bin == '0' && (*(bin + 1) == 'b' || *(bin + 1) == 'B')){
 		bin += 2;
@@ -194,7 +195,7 @@ bool if_bin(char* bin){
 	return 1;
 }
 
-//verified
+
 bool if_hex(char* hex1){
 	if(*hex1 == '0' && (*(hex1 + 1) == 'x' ||  *(hex1 + 1) == 'X')){
 		hex1 += 2;
@@ -212,7 +213,7 @@ bool if_hex(char* hex1){
 }
 
 
-//verified
+
 bool if_dec(char* a){
 	if((*a == '0') && (*(a + 1) != 'd' ||  *(a + 1) != 'D')){
 		a += 2;
